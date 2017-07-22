@@ -1,36 +1,29 @@
-import React, { Component } from 'react';
-import './App.css';
-import enUS from 'antd/lib/locale-provider/en_US';
-import { DatePicker } from 'antd';
-import { TimePicker } from 'antd';
-
-const format = 'YYYY-MM-DD HH:mm';
-
-function disabledSeconds() {
-}
-
-function onChange(value, dateString) {
-  console.log('Selected Time: ', value);
-  console.log('Formatted Selected Time: ', dateString);
-}
-
-function onOk(value) {
-  console.log('onOk: ', value);
-}
-
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import Form from "./Form";
 
 class App extends Component {
+  state = {
+    fields: {}
+  };
+
+  onChange = updatedValue => {
+    this.setState({
+      fields: {
+        ...this.state.fields,
+        ...updatedValue
+      }
+    });
+  };
+
   render() {
     return (
       <div className="App">
-      <DatePicker
-      showTime={{ format: 'HH:mm' }}
-      format={format}
-      placeholder="Select Date & Time"
-      onChange={onChange}
-      onOk={onOk}
-      disabledSeconds={disabledSeconds}
-      />
+        <Form onChange={fields => this.onChange(fields)} />
+        <p>
+          {JSON.stringify(this.state.fields, null, 2)}
+        </p>
       </div>
     );
   }
