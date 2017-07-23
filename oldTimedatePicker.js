@@ -37,7 +37,15 @@
 // export default App;
 //
 //
-
+// <FormItem
+//       {...formItemLayout}
+//       label="Validating"
+//       hasFeedback
+//       validateStatus="validating"
+//       help="The information is being validated..."
+//     >
+//       <Input placeholder="I'm the content is being validated" id="validating" />
+//     </FormItem>
 //
 //
 //

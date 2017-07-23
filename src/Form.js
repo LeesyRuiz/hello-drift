@@ -1,81 +1,100 @@
-import React from "react";
+import React, { Component } from "react";
+import './App.css';
+import { Form, DatePicker, Input, TimePicker, Button }from 'antd';
+const FormItem = Form.Item;
 
-export default class Form extends React.Component {
-  state = {
-    firstName: "",
-    lastName: "",
-    username: "",
-    email: "",
-    password: ""
-  };
 
-  change = e => {
-    this.props.onChange({ [e.target.name]: e.target.value });
-    this.setState({
-      [e.target.name]: e.target.value
+ class TimeRelatedForm extends React.Component {
+   constructor(props) {
+    super(props);
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit (event) {
+    event.preventDefault();
+
+    this.props.form.validateFields((err, fieldsValue) => {
+      if (err) {
+        return;
+      }
+
+
+      const values = {
+        ...fieldsValue,
+        'date-picker': fieldsValue['date-picker'].format('YYYY-MM-DD'),
+        'time-picker': fieldsValue['time-picker'].format('HH:mm:ss'),
+      };
+      console.log('Received values of form: ', values);
     });
-  };
-
-  onSubmit = e => {
-    e.preventDefault();
-    // this.props.onSubmit(this.state);
-    this.setState({
-      firstName: "",
-      lastName: "",
-      username: "",
-      email: "",
-      password: ""
-    });
-    this.props.onChange({
-      firstName: "",
-      lastName: "",
-      username: "",
-      email: "",
-      password: ""
-    });
-  };
-
+  }
   render() {
+    const { getFieldDecorator } = this.props.form;
+    const formItemLayout = {
+      labelCol: {
+        xs: { span: 24 },
+        sm: { span: 8 },
+      },
+      wrapperCol: {
+        xs: { span: 24 },
+        sm: { span: 16 },
+      },
+    };
+    const config = {
+      rules: [{ type: 'object', required: true, message: 'Please select time!' }],
+    };
+     
     return (
-      <form>
-        <input
-          name="firstName"
-          placeholder="First name"
-          value={this.state.firstName}
-          onChange={e => this.change(e)}
-        />
-        <br />
-        <input
-          name="lastName"
-          placeholder="Last name"
-          value={this.state.lastName}
-          onChange={e => this.change(e)}
-        />
-        <br />
-        <input
-          name="username"
-          placeholder="Username"
-          value={this.state.username}
-          onChange={e => this.change(e)}
-        />
-        <br />
-        <input
-          name="email"
-          placeholder="Email"
-          value={this.state.email}
-          onChange={e => this.change(e)}
-        />
-        <br />
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          value={this.state.password}
-          onChange={e => this.change(e)}
-        />
-        <br />
-        <button onClick={e => this.onSubmit(e)}>Submit</button>
-      </form>
+      <Form onSubmit={this.handleSubmit}>
+
+     <FormItem
+       {...formItemLayout}
+          label="City"
+
+          wrapperCol={{ span: 4 }}
+
+        >
+          {getFieldDecorator('note',  {
+            rules: [{ required: true, message: 'Please input your note!' }],
+          })(
+            <Input />
+          )}
+        </FormItem>
+
+
+      <FormItem
+          {...formItemLayout}
+          label="Date Picker"
+
+        >
+          {getFieldDecorator('date-picker', config)(
+            <DatePicker />
+          )}
+        </FormItem>
+
+        <FormItem
+          {...formItemLayout}
+          label="Time Picker"
+
+
+        >
+          {getFieldDecorator('time-picker', config)(
+            <TimePicker />
+          )}
+        </FormItem>
+        <FormItem
+          wrapperCol={{
+            xs: { span: 24, offset: 0 },
+            sm: { span: 16, offset: 8 },
+          }}
+        >
+          <Button type="primary" htmlType="submit">Submit</Button>
+        </FormItem>
+      </Form>
     );
   }
-}
+};
+
+const WrappedTimeRelatedForm = Form.create()(TimeRelatedForm);
+
+export default WrappedTimeRelatedForm
