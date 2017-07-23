@@ -27,8 +27,14 @@ componentWillMount(){
 
 
   render() {
+    console.log(" Events: ", this.state.events);
      return (
+       <div>
        <div>Events: {this.state.eventName}</div>
+       <div>Name: Myeventname</div>
+       <div>Place: theplace</div>
+       <div>Time: thetime</div>
+       </div>
 
      )
   };

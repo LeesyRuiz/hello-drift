@@ -18,9 +18,9 @@ class App extends Component {
 
       <div className="Drift">
 
-    //  <Form  />
+    <Form  />
     <Event />
-<p>rxdtcfghvjb</p>
+
      </div>
 
 
