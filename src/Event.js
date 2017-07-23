@@ -1,22 +1,23 @@
-import React from "react";
+import React, { Component } from "react";
 import './App.css';
 
 
 class Event extends Component {
   constructor(props) {
    super(props);
-
+   this.state = {
+   events: [],
+   eventName: ''
+ }
 }
 
-
   getEvents(){
-    var url = 'http://localhost:3000/events?lat=47.617&lng=-122.332&distance=200&sort=time&accessToken=EAACEdEose0cBAHdWVlqsrGLzUoj2gYcPx2egzvs5J3tMzEans9MAjdr0CtVW4nDZCAgovDLjXGnr3Xl4NqGSrZCxenZCouIijZCCnhJJqhfx8IYUatBe2sBZBeGuOpZAXnRNZAr5wJJOp4XQqh6bvImcGVCG1F1Dn0uBYH22cQzFXqQLA5H4982ZAe89tRtEcnsZD'
+    var url = 'http://localhost:3000/events?lat=47.617&lng=-122.332&distance=70&sort=time&accessToken=EAACEdEose0cBANE1fCOgvKRb6DsZAjY37vgOOkruw1DLF90ZBlaSvkkusffZBvo432Nak3fPQLw4oDTsQ1PZAaIXiz3WKBKndsNR4F4aJnarVpV91si3iWdNMWvQ13PdrkKqZAy9R84EJTSu2hX3ZBntzZBvPnc0ZA4omK4HnH18DAfZBHfpxfTX4VBLu3HZAPYvwZD'
     return fetch(url).then((res) => res.json())
   }
 
-
 componentWillMount(){
-  this.state.getEvents().then((res) => {
+  this.getEvents().then((res) => {
     this.setState({
       events: res.events,
       eventName: res.events[9].name
@@ -27,7 +28,8 @@ componentWillMount(){
 
   render() {
      return (
-         <div>Events: {this.state.eventName}</div>
+       <div>Events: {this.state.eventName}</div>
+
      )
   };
 }
