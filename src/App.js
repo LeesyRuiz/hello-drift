@@ -8,18 +8,20 @@ import api from "./api";
 // import axios from 'axios';
 
 class App extends Component {
-
   constructor(props) {
    super(props);
+
    this.state = {
-     events: []
+     events: [],
+     eventName: ''
    }
 }
 
 componentWillMount(){
   api.getEvents().then((res) => {
     this.setState({
-      events: res.events
+      events: res.events,
+      eventName: res.events[9].name
     })
   });
 }
@@ -30,6 +32,8 @@ componentWillMount(){
       <div className="Drift">
 
       <Form/>
+
+      Events: {this.state.eventName}
 
       </div>
 

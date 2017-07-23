@@ -2,17 +2,20 @@ import React, { Component } from "react";
 import './App.css';
 import { Form, DatePicker, Input, TimePicker, Button }from 'antd';
 const FormItem = Form.Item;
+const format = 'HH:mm';
 
 
- class TimeRelatedForm extends React.Component {
-   constructor(props) {
+
+class TimeRelatedForm extends React.Component {
+  constructor(props) {
     super(props);
-
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+ 
   handleSubmit (event) {
     event.preventDefault();
+    console.log(this);
 
     this.props.form.validateFields((err, fieldsValue) => {
       if (err) {
@@ -23,7 +26,7 @@ const FormItem = Form.Item;
       const values = {
         ...fieldsValue,
         'date-picker': fieldsValue['date-picker'].format('YYYY-MM-DD'),
-        'time-picker': fieldsValue['time-picker'].format('HH:mm:ss'),
+        'time-picker': fieldsValue['time-picker'].format('HH:mm'),
       };
       console.log('Received values of form: ', values);
     });
@@ -43,53 +46,58 @@ const FormItem = Form.Item;
     const config = {
       rules: [{ type: 'object', required: true, message: 'Please select time!' }],
     };
-     
+
     return (
       <Form onSubmit={this.handleSubmit}>
 
-     <FormItem
-       {...formItemLayout}
-          label="City"
+      <FormItem
+      {...formItemLayout}
+      label="City"
 
-          wrapperCol={{ span: 4 }}
+      wrapperCol={{ span: 4 }}
 
-        >
-          {getFieldDecorator('note',  {
-            rules: [{ required: true, message: 'Please input your note!' }],
-          })(
-            <Input />
-          )}
-        </FormItem>
+      >
+      {getFieldDecorator('city',  {
+        rules: [{ required: true, message: 'Please input your note!' }],
+      })(
+        <Input
+
+        />
+      )}
+      </FormItem>
 
 
       <FormItem
-          {...formItemLayout}
-          label="Date Picker"
+      {...formItemLayout}
+      label="Date Picker"
 
-        >
-          {getFieldDecorator('date-picker', config)(
-            <DatePicker />
-          )}
-        </FormItem>
+      >
+      {getFieldDecorator('date-picker', config)(
+        <DatePicker />
+      )}
+      </FormItem>
 
-        <FormItem
-          {...formItemLayout}
-          label="Time Picker"
+      <FormItem
+      {...formItemLayout}
+      label="Time Picker"
 
 
-        >
-          {getFieldDecorator('time-picker', config)(
-            <TimePicker />
-          )}
-        </FormItem>
-        <FormItem
-          wrapperCol={{
-            xs: { span: 24, offset: 0 },
-            sm: { span: 16, offset: 8 },
-          }}
-        >
-          <Button type="primary" htmlType="submit">Submit</Button>
-        </FormItem>
+      >
+      {getFieldDecorator('time-picker', config)(
+        <TimePicker
+        format={format}
+
+        />
+      )}
+      </FormItem>
+      <FormItem
+      wrapperCol={{
+        xs: { span: 24, offset: 0 },
+        sm: { span: 16, offset: 8 },
+      }}
+      >
+      <Button type="primary" htmlType="submit">Submit</Button>
+      </FormItem>
       </Form>
     );
   }
