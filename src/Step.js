@@ -1,31 +1,21 @@
-import React, { Component } from "react";
+import React from "react";
 import './App.css';
-import Form from "./Form";
 import { Steps, Button, message } from 'antd';
 const Step = Steps.Step;
-// import Event from "./Event";
-// import axios from 'axios';
 
 const steps = [{
   title: 'First',
-  content: "",
-},
-{
+  content: 'Firstjhbvg-content',
+}, {
   title: 'Second',
-  content:
-  <Form/>,
-},
-{
+  content: 'Second-content',
+}, {
   title: 'Last',
   content: 'Last-content',
 }];
 
-
-
-
-
-class App extends Component {
-   constructor(props) {
+class Step extends React.Component {
+  constructor(props) {
     super(props);
     this.state = {
       current: 0,
@@ -39,7 +29,6 @@ class App extends Component {
     const current = this.state.current - 1;
     this.setState({ current });
   }
-
   render() {
     const { current } = this.state;
     return (
@@ -70,7 +59,6 @@ class App extends Component {
       </div>
     );
   }
+}
 
-  }
-
-  export default App;
+export default Step;

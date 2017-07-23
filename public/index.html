@@ -80,14 +80,18 @@ Learn how to configure a non-root public URL by running `npm run build`.
   }
    </script>
 
-  <div id="status">  </div>
+  <!-- <div id="status">  </div>
   <button onclick="getInfo()">Get Info</button>
-  <button onclick="login()" id="login">Login</button>
+  <button onclick="login()" id="login">Login</button> -->
 
-
+<div id="container" style="padding: 24px">
 <div id="root"></div>
+</div>
 
-<div id="RandomEvent"></div>
+<script>
+  var mountNode = document.getElementById('container');
+</script>
+
 
 </body>
 </html>

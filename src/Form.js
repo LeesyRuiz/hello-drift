@@ -12,14 +12,6 @@ class TimeRelatedForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  // change = e => {
-  //   this.props.onChange({ [e.target.name]: e.target.value });
-  //   this.setState({
-  //     [e.target.name]: e.target.value
-  //   });
-  // };
-  //
-
   handleSubmit (event) {
     event.preventDefault();
 
@@ -38,7 +30,7 @@ class TimeRelatedForm extends React.Component {
         'time-picker': fieldsValue['time-picker'].format('HH:mm'),
       };
 
-        alert(values['city'])
+      alert(values['city'])
       console.log('Received values of form: ', values);
 
       // change = e => {
@@ -49,7 +41,6 @@ class TimeRelatedForm extends React.Component {
       // };
 
 
-
     });
   }
   render() {
@@ -57,12 +48,13 @@ class TimeRelatedForm extends React.Component {
     const formItemLayout = {
       labelCol: {
         xs: { span: 24 },
-        sm: { span: 8 },
+        sm: { span: 6 },
       },
       wrapperCol: {
         xs: { span: 24 },
-        sm: { span: 16 },
+        sm: { span: 14 },
       },
+
     };
     const config = {
       rules: [{ type: 'object', required: true, message: 'Please select time!' }],
@@ -75,13 +67,13 @@ class TimeRelatedForm extends React.Component {
       {...formItemLayout}
       label="City"
 
-      wrapperCol={{ span: 4 }}
-
+       // wrapperCol={{ span: 4 }}
       >
       {getFieldDecorator('city',  {
         rules: [{ required: true, message: 'Please input your note!' }],
       })(
         <Input
+         Col={{ span: 2}}
         // value={this.state.city}
         // onChange={e => this.change(e)}
         />
@@ -92,10 +84,14 @@ class TimeRelatedForm extends React.Component {
       <FormItem
       {...formItemLayout}
       label="Date Picker"
+      // <Col span={8}
+       Col={{ span: 8 }}
+
       >
 
       {getFieldDecorator('date-picker', config)(
         <DatePicker
+         Col={{ span: 8 }}
         // value={this.state.datepicker}
         // onChange={e => this.change(e)}
 
@@ -110,18 +106,18 @@ class TimeRelatedForm extends React.Component {
       <FormItem
       {...formItemLayout}
       label="Time Picker"
-
-
       >
+
       {getFieldDecorator('time-picker', config)(
         <TimePicker
+         Col={{ span: 8 }}
         // value={this.state.timepicker}
         // onChange={e => this.change(e)}
         format={format}
-
         />
       )}
       </FormItem>
+
       <FormItem
       wrapperCol={{
         xs: { span: 24, offset: 0 },
