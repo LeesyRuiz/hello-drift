@@ -1,15 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 import './App.css';
 
 
 class Event extends Component {
   constructor(props) {
    super(props);
-
-   this.state = {
-     events: [],
-     eventName: ''
-   }
 
 }
 

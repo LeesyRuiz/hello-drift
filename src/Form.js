@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {PropTypes, Component } from "react";
 import './App.css';
 import { Form, DatePicker, Input, TimePicker, Button }from 'antd';
 const FormItem = Form.Item;
@@ -8,14 +8,23 @@ const format = 'HH:mm';
 
 class TimeRelatedForm extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-
+  // change = e => {
+  //   this.props.onChange({ [e.target.name]: e.target.value });
+  //   this.setState({
+  //     [e.target.name]: e.target.value
+  //   });
+  // };
+  //
 
   handleSubmit (event) {
     event.preventDefault();
+
+
+
 
     this.props.form.validateFields((err, fieldsValue) => {
       if (err) {
@@ -29,8 +38,8 @@ class TimeRelatedForm extends React.Component {
         'time-picker': fieldsValue['time-picker'].format('HH:mm'),
       };
 
-
-      // console.log('Received values of form: ', values);
+        alert(values['city'])
+      console.log('Received values of form: ', values);
 
       // change = e => {
       // this.props.onChange({ [e.target.name]: e.target.value });
@@ -73,7 +82,8 @@ class TimeRelatedForm extends React.Component {
         rules: [{ required: true, message: 'Please input your note!' }],
       })(
         <Input
-          // onChange={e => this.change(e)}
+        // value={this.state.city}
+        // onChange={e => this.change(e)}
         />
       )}
       </FormItem>
@@ -82,12 +92,20 @@ class TimeRelatedForm extends React.Component {
       <FormItem
       {...formItemLayout}
       label="Date Picker"
-
       >
+
       {getFieldDecorator('date-picker', config)(
-        <DatePicker />
+        <DatePicker
+        // value={this.state.datepicker}
+        // onChange={e => this.change(e)}
+
+        />
       )}
       </FormItem>
+
+
+
+
 
       <FormItem
       {...formItemLayout}
@@ -97,6 +115,8 @@ class TimeRelatedForm extends React.Component {
       >
       {getFieldDecorator('time-picker', config)(
         <TimePicker
+        // value={this.state.timepicker}
+        // onChange={e => this.change(e)}
         format={format}
 
         />

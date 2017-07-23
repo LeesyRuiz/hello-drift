@@ -1,37 +1,24 @@
 import React, { Component } from "react";
 import './App.css';
-// import { Form, DatePicker, Input, TimePicker, Button }from 'antd';
-// const FormItem = Form.Item;
 import Form from "./Form";
-import Event from "./Event";
-
+// import Event from "./Event";
 // import axios from 'axios';
 
 class App extends Component {
-  constructor(props) {
-   super(props);
-
-   this.state = {
-     events: [],
-     eventName: ''
-   }
-}
-
-
+   constructor(props) {
+    super(props);
+  }
 
   render() {
-    console.log(" Events: ", this.state.events);
+    // console.log(" Events: ", this.state.events);
     return (
       <div className="Drift">
 
-      <Form/>
-
-
-
+      <Form  />
 
       </div>
 
     )}
-}
+  }
 
-export default App;
+  export default App;
