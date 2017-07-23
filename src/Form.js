@@ -12,10 +12,10 @@ class TimeRelatedForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
- 
+
+
   handleSubmit (event) {
     event.preventDefault();
-    console.log(this);
 
     this.props.form.validateFields((err, fieldsValue) => {
       if (err) {
@@ -28,7 +28,19 @@ class TimeRelatedForm extends React.Component {
         'date-picker': fieldsValue['date-picker'].format('YYYY-MM-DD'),
         'time-picker': fieldsValue['time-picker'].format('HH:mm'),
       };
-      console.log('Received values of form: ', values);
+
+
+      // console.log('Received values of form: ', values);
+
+      // change = e => {
+      // this.props.onChange({ [e.target.name]: e.target.value });
+      // this.setState({
+      //   [e.target.name]: e.target.value
+      // });
+      // };
+
+
+
     });
   }
   render() {
@@ -61,7 +73,7 @@ class TimeRelatedForm extends React.Component {
         rules: [{ required: true, message: 'Please input your note!' }],
       })(
         <Input
-
+          // onChange={e => this.change(e)}
         />
       )}
       </FormItem>

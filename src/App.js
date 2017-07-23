@@ -3,7 +3,7 @@ import './App.css';
 // import { Form, DatePicker, Input, TimePicker, Button }from 'antd';
 // const FormItem = Form.Item;
 import Form from "./Form";
-import api from "./api";
+import Event from "./Event";
 
 // import axios from 'axios';
 
@@ -17,14 +17,7 @@ class App extends Component {
    }
 }
 
-componentWillMount(){
-  api.getEvents().then((res) => {
-    this.setState({
-      events: res.events,
-      eventName: res.events[9].name
-    })
-  });
-}
+
 
   render() {
     console.log(" Events: ", this.state.events);
@@ -33,7 +26,8 @@ componentWillMount(){
 
       <Form/>
 
-      Events: {this.state.eventName}
+
+
 
       </div>
 
