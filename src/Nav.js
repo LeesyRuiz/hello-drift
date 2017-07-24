@@ -5,7 +5,6 @@ import Event from "./Event";
 
 const Nav  = (props) => {
   return (
-
     <main className="Nav">
     <section className="et-hero-tabs">
     <h1>Drift</h1>
@@ -19,7 +18,6 @@ const Nav  = (props) => {
     <span className="et-hero-tab-slider"></span>
     </div>
     </section>
-
 
     <div className="et-main">
     <section className="et-slide" id="tab-es6">
@@ -60,8 +58,6 @@ const Nav  = (props) => {
 
     </div>
     </main>
-
-
 
   )}
 

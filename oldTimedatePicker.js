@@ -126,9 +126,11 @@
 //      };
 //  }
 
+
+
 //
 //
-//
+//<main>
 // <section class="et-hero-tabs">
 //   <h1>STICKY SLIDER NAV</h1>
 //   <h3>Sliding content with sticky tab nav</h3>
@@ -142,8 +144,8 @@
 //   </div>
 // </section>
 //
-// <!-- Main -->
-// <main class="et-main">
+//
+// <div class="et-main">
 //   <section class="et-slide" id="tab-es6">
 //     <h1>ES6</h1>
 //     <h3>something about es6</h3>
@@ -164,4 +166,5 @@
 //     <h1>Other</h1>
 //     <h3>something about other</h3>
 //   </section>
+// </div>
 // </main>
