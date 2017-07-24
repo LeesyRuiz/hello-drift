@@ -20,20 +20,6 @@
   font-size: large;
 }*/
 
-.steps-content {
-  margin-top: 16px;
-  border: 1px dashed #pink;
-  border-radius: 6px;
-  background-color: #fafafa;
-  min-height: 500px;
-  text-align: center;
-  padding-top: 80px;
-}
-
-.steps-action {
-  margin-top: 24px;
-  color: black;
-}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }

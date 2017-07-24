@@ -12,7 +12,7 @@ class Event extends Component {
 }
 
   getEvents(){
-    var url = 'http://localhost:3000/events?lat=47.617&lng=-122.332&distance=70&sort=time&accessToken=EAACEdEose0cBANE1fCOgvKRb6DsZAjY37vgOOkruw1DLF90ZBlaSvkkusffZBvo432Nak3fPQLw4oDTsQ1PZAaIXiz3WKBKndsNR4F4aJnarVpV91si3iWdNMWvQ13PdrkKqZAy9R84EJTSu2hX3ZBntzZBvPnc0ZA4omK4HnH18DAfZBHfpxfTX4VBLu3HZAPYvwZD'
+    var url = ' http://localhost:3000/events?lat=47.617&lng=-122.332&distance=70&sort=time&accessToken=EAACEdEose0cBAILcvd9QNwVQo8Ef4tTZClcGGjNE6mSiQZCi9zZCH6i7635ctC1o15LszCWukfDuM6xjjDtIaN4nmIimNP06WVtsvtWE6dcQsnwfHImoLZCWoTgMHeNZB5PyRRMo1XrZB6hhh4zChkcAEEsJ7E4VCPrcV4xckqzptgL09Ax6D0HJ5kumwnvDcZD'
     return fetch(url).then((res) => res.json())
   }
 

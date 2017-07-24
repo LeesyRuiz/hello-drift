@@ -1,27 +1,28 @@
 import React, { Component } from "react";
 import './App.css';
-import Form from "./Form";
-import Event from "./Event";
+// import Form from "./Form";
+// import Event from "./Event";
+import WrappedForm from "./NewForm";
 
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      events: [],
-      eventName: []
-    }
+    // this.state = {
+    //   events: [],
+    //   eventName: []
+    // }
   }
 
   render(){
     return (
 
-      <div className="Drift">
+<div>
 
-    //  <Form  />
-    <Event />
-<p>rxdtcfghvjb</p>
-     </div>
+     <WrappedForm  />
+
+</div>
+
 
 
 

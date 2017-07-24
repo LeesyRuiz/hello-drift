@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import './App.css';
 import { Form, DatePicker, Input, TimePicker, Button }from 'antd';
 const FormItem = Form.Item;
 const format = 'HH:mm';
@@ -66,7 +65,6 @@ class TimeRelatedForm extends React.Component {
       <FormItem
       {...formItemLayout}
       label="City"
-
        // wrapperCol={{ span: 4 }}
       >
       {getFieldDecorator('city',  {
@@ -81,6 +79,11 @@ class TimeRelatedForm extends React.Component {
       </FormItem>
 
 
+
+
+
+
+
       <FormItem
       {...formItemLayout}
       label="Date Picker"
@@ -88,6 +91,11 @@ class TimeRelatedForm extends React.Component {
        Col={{ span: 8 }}
 
       >
+
+
+
+
+
 
       {getFieldDecorator('date-picker', config)(
         <DatePicker
