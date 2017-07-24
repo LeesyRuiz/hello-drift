@@ -1,6 +1,8 @@
+
 import React, { Component } from "react";
 // import './App.css';
 import { Form, DatePicker, Input, TimePicker, Button }from 'antd';
+// import NodeGeocoder from './Location'
 const FormItem = Form.Item;
 const format = 'HH:mm';
 
@@ -14,6 +16,7 @@ class TimeRelatedForm extends React.Component {
 
   handleSubmit (event) {
     event.preventDefault();
+
 
 
 
@@ -67,7 +70,7 @@ class TimeRelatedForm extends React.Component {
       {...formItemLayout}
       label="City"
 
-       // wrapperCol={{ span: 4 }}
+      // wrapperCol={{ span: 4 }}
       >
       {getFieldDecorator('city',  {
         rules: [{ required: true, message: 'Please input your note!' }],
@@ -125,7 +128,11 @@ class TimeRelatedForm extends React.Component {
       }}
       >
       <Button type="primary" htmlType="submit">Submit</Button>
+
       </FormItem>
+
+
+
       </Form>
     );
   }
