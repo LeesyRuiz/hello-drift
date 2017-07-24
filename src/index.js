@@ -1,3 +1,4 @@
+import './index.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -8,7 +9,6 @@ import enUS from 'antd/lib/locale-provider/en_US';
 
 
 ReactDOM.render(
-
   <LocaleProvider locale={enUS}>
     <App />
   </LocaleProvider> ,

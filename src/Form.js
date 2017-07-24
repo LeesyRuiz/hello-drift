@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './App.css';
+// import './App.css';
 import { Form, DatePicker, Input, TimePicker, Button }from 'antd';
 const FormItem = Form.Item;
 const format = 'HH:mm';
@@ -48,7 +48,7 @@ class TimeRelatedForm extends React.Component {
     const formItemLayout = {
       labelCol: {
         xs: { span: 24 },
-        sm: { span: 6 },
+        sm: { span: 10 },
       },
       wrapperCol: {
         xs: { span: 24 },
@@ -73,7 +73,7 @@ class TimeRelatedForm extends React.Component {
         rules: [{ required: true, message: 'Please input your note!' }],
       })(
         <Input
-         Col={{ span: 2}}
+        //  Col={{ span: 2}}
         // value={this.state.city}
         // onChange={e => this.change(e)}
         />
@@ -85,13 +85,13 @@ class TimeRelatedForm extends React.Component {
       {...formItemLayout}
       label="Date Picker"
       // <Col span={8}
-       Col={{ span: 8 }}
+      //  Col={{ span: 8 }}
 
       >
 
       {getFieldDecorator('date-picker', config)(
         <DatePicker
-         Col={{ span: 8 }}
+        //  Col={{ span: 8 }}
         // value={this.state.datepicker}
         // onChange={e => this.change(e)}
 
@@ -110,7 +110,7 @@ class TimeRelatedForm extends React.Component {
 
       {getFieldDecorator('time-picker', config)(
         <TimePicker
-         Col={{ span: 8 }}
+
         // value={this.state.timepicker}
         // onChange={e => this.change(e)}
         format={format}
