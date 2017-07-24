@@ -1,12 +1,11 @@
 // import './index.css';
-import './Clockwork.css';
-
+import './App.css';
 import React, { Component } from "react";
-import $ from "jquery";
+// import Clockwork from "./Clockwork";
+import './interactiveForm.scss';
 
-import Clockwork from "./Clockwork";
 // import './App.css';
-// import Form from "./Form";
+import Form from "./Form";
 // import Event from "./Event";
 // import Nav from "./Nav";
 
@@ -21,7 +20,7 @@ class App extends Component {
   }
   render(){
     return (
-     <Clockwork />
+     <Form />
     )}
   }
 
