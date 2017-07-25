@@ -24,7 +24,7 @@ class Event extends Component {
 
 
   getEvents(){
-    var url = 'http://localhost:3000/events?lat=47.617&lng=-122.332&distance=70&sort=time&accessToken=EAACEdEose0cBAAqCfBgGerKD4EJknWW5ByGrCF7uYEjSq5q02R78nnK96voGrzf18Gpt5ucaU1bSYBwzXIn9U7xPkrPtyZAn7U6QwvvppOZCWMZCsJMlwFm2ZAA9BQs7IhrL0kLAu3cMnFgGBuuCEcBI2oTL6iuZBsblx5N4SefunFrNN4DdaVxArLtBKsDIZD'
+    var url = ' http://localhost:3000/events?lat=47.617&lng=-122.332&distance=70&sort=time&accessToken=EAACEdEose0cBANabfJ1R8pRJZBFR5QQrmRRTrAZAZBF2c10ooITvWfSCfeZBOZCsY0ACCJGOHhQWDpOxS1M8u8hpIrswLqZBdzwULpSzefgPxuDCczCxOUBOxZBkC8zrUSZCKK5otUGZBngLrT7ynj64ZB3kUdZArcC72ZCvNUHJR7sgqM6NVPJyu40toPqvf70d648ZD'
 
     var jsonData = fetch(url).then((res) => res.json())
     console.log(jsonData);
