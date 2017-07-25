@@ -32,8 +32,6 @@ class App extends Component {
 
 
 
-
-
   onTabClick(event, element) {
     event.preventDefault();
     let scrollTop = $(element.attr('href')).offset().top - this.tabContainerHeight + 1;
