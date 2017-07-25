@@ -2,9 +2,9 @@ import './index.css';
 import React, { Component } from "react";
 import $ from "jquery";
 // import './App.css';
-// import Form from "./Form";
-// import Event from "./Event";
-import Nav from "./Nav";
+import Form from "./Form";
+import Event from "./Event";
+
 
 
 
@@ -95,7 +95,8 @@ class App extends Component {
   render(){
     return (
       <div>
-      <Nav />
+      <Form />
+      <Event />
       </div>
     )
   }
