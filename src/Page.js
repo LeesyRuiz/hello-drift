@@ -1,8 +1,10 @@
-import './index.css';
+/* eslint-disable */
+// import './index.css';
 import React, { Component } from "react";
 import $ from "jquery";
 import Form from "./Form";
 import Event from "./Event";
+
 
 
 function WarningBanner(props) {
@@ -26,6 +28,11 @@ class Page extends Component {
     // }
 
   }
+
+
+
+
+
   handleToggleClick() {
     this.setState(prevState => ({
       showWarning: !prevState.showWarning
@@ -37,10 +44,10 @@ class Page extends Component {
   render(){
     return (
       <div>
-         <WarningBanner warn={this.state.showWarning} />
+          <WarningBanner warn={this.state.showWarning} />
       <Event />
       <button onClick={this.handleToggleClick}>
-          {this.state.showWarning ? 'Submit' : 'Show'}
+           {this.state.showWarning ? 'Submit' : 'Show'}
         </button>
       </div>
     )

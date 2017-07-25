@@ -1,4 +1,4 @@
-
+/* eslint-disable */
 import React, { Component } from "react";
 // import './App.css';
 import { Form, DatePicker, Input, TimePicker, Button }from 'antd';
@@ -17,16 +17,10 @@ class TimeRelatedForm extends React.Component {
   handleSubmit (event) {
     event.preventDefault();
 
-
-
-
-
     this.props.form.validateFields((err, fieldsValue) => {
       if (err) {
         return;
       }
-
-
       const values = {
         ...fieldsValue,
         'date-picker': fieldsValue['date-picker'].format('YYYY-MM-DD'),
@@ -62,6 +56,8 @@ class TimeRelatedForm extends React.Component {
     const config = {
       rules: [{ type: 'object', required: true, message: 'Please select time!' }],
     };
+
+
 
     return (
       <Form onSubmit={this.handleSubmit}>

@@ -1,4 +1,5 @@
-import './index.css';
+/* eslint-disable */
+// import './index.css';
 import React, { Component } from "react";
 import $ from "jquery";
 // import './App.css';
