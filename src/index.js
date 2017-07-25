@@ -1,5 +1,6 @@
 import { render } from 'react-dom'
 import Routes from './config/Routes'
+import * as firebase from 'firebase'
 
 import 'bootstrap/dist/css/bootstrap.css'
 
