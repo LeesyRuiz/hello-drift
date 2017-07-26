@@ -13,7 +13,7 @@ class PromptContainer extends React.Component {
 
     // initial state is defined here
     this.state = {
-      username: ''
+      city: ''
     }
   }
 
@@ -23,7 +23,11 @@ class PromptContainer extends React.Component {
         onSubmitUser={this.handleSubmitUser}
         onUpdateUser={this.handleUpdateUser}
         header={this.props.route.header}
-        username={this.state.username} />
+        city={this.state.city}
+        startTime={this.state.startTime}
+        date={this.state.date}
+
+         />
     )
   }
 
@@ -32,34 +36,42 @@ class PromptContainer extends React.Component {
   // this is a babel experimental feature : http://stackoverflow.com/questions/31362292/how-to-use-es6-arrow-in-class-methods
   handleUpdateUser = (event) => {
     this.setState({
-      username: event.target.value
+      city: event.target.value
+      startTime: event.target.value
+      date: event.target.value
     })
   }
 
   handleSubmitUser = (event) => {
     event.preventDefault()
-    let username = this.state.username
-    // reset username so if the user clicks back, the field is defaulted.
+    let city = this.state.city
+    let date = this.state.date
+    let startTime = this.state.startTime
+
+
+    // reset city so if the user clicks back, the field is defaulted.
     this.setState({
-      username: ''
+      city: ''
+      startTime: ''
+      date: ''
     })
 
     if (this.props.routeParams['playerOne']) {
       // go to /battle
       this.context.router.push({
-        pathname: '/battle',
-        query: {
-          playerOne: this.props.routeParams['playerOne'],
-          playerTwo: username
-        }
+        pathname: '/submit',
+        // query: {
+          // playerOne: this.props.routeParams['playerOne'],
+          // playerTwo: city
+        // }
       })
     }
-    else {
-      // go to /playerTwo
-      this.context.router.push('/playerTwo/' + username)
-    }
-  }
-}
+//     else {
+//       // go to /playerTwo
+//       this.context.router.push('/playerTwo/' + city)
+//     }
+//   }
+// }
 
 // for some reason, contextTypes should be defined here, not inside
 //  If I do contextTypes : { ... } the context becomes undefined

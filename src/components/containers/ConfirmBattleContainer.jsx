@@ -2,51 +2,51 @@ import React, { Component, PropTypes } from 'react'
 import ConfirmBattle from '../stateless/ConfirmBattle'
 import Helpers from '../../utils/githubHelpers'
 
-class ConfirmBattleContainer extends Component {
+class ConfirmFormContainer extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
       isLoading: true,
-      playersInfo: []
+      formInfo: []
     }
   }
 
   componentDidMount() {
     let query = this.props.location.query
-    Helpers.getPlayersInfo([query.playerOne, query.playerTwo])
-      .then((players) => {
+    Helpers.getformInfo([query.submit)
+      .then((apiSearch) => {
         this.setState({
           isLoading: false,
-          playersInfo: [players[0], players[1]]
+          formInfo: [apiSearch]
         })
       }).catch((err) => {
-        console.warn('Error in getPlayersInfo()', err)
+        console.warn('Error in getformInfo()', err)
       })
   }
 
   render() {
     return (
-      <ConfirmBattle
+      <ConfirmForm
         isLoading={this.state.isLoading}
-        playersInfo={this.state.playersInfo}
-        onInitiateBattle={this.handleInitiateBattle} />
+        formInfo={this.state.formInfo}
+        onInitiateRandomizer={this.handleInitiateRandomizer} />
     )
   }
 
-  handleInitiateBattle = () => {
+  handleInitiateRandomizer = () => {
     console.log(this)
     this.context.router.push({
       pathname: '/results',
       state: {
-        playersInfo: this.state.playersInfo
+        formInfo: this.state.formInfo
       }
     })
   }
 }
 
-ConfirmBattleContainer.contextTypes = {
+ConfirmFormContainer.contextTypes = {
   router: PropTypes.object.isRequired
 }
 
-export default ConfirmBattleContainer
+export default ConfirmFormContainer

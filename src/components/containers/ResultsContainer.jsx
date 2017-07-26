@@ -13,7 +13,7 @@ class ResultsContainer extends Component {
   }
 
   componentDidMount() {
-    Helpers.battle(this.props.location.state.playersInfo)
+    Helpers.battle(this.props.location.state.formInfo)
       .then((scores) => {
         this.setState({
           scores: scores,
@@ -27,7 +27,7 @@ class ResultsContainer extends Component {
       <Results
         isLoading={this.state.isLoading}
         scores={this.state.scores}
-        playersInfo={this.props.location.state.playersInfo} />
+        formInfo={this.props.location.state.formInfo} />
     )
   }
 }

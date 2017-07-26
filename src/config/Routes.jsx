@@ -4,7 +4,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import Main from '../components/stateless/Main'
 import Home from '../components/stateless/Home'
 import PromptContainer from '../components/containers/PromptContainer'
-import ConfirmBattleContainer from '../components/containers/ConfirmBattleContainer'
+import ConfirmFormContainer from '../components/containers/ConfirmFormContainer'
 import ResultsContainer from '../components/containers/ResultsContainer'
 
 const Routes = (
@@ -13,7 +13,7 @@ const Routes = (
       <IndexRoute component={Home} />
       <Route path='/playerOne' header='Player One' component={PromptContainer} />
       <Route path='/playerTwo/:playerOne' header='Player Two' component={PromptContainer} />
-      <Route path='/battle' component={ConfirmBattleContainer} />
+      <Route path='/battle' component={ConfirmFormContainer} />
       <Route path='/results' component={ResultsContainer} />
     </Route>
   </Router>

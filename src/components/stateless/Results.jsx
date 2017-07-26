@@ -45,10 +45,10 @@ const Results = (props) => {
       <h1>Results</h1>
       <div className='col-sm-8 col-sm-offset-2'>
         <UserDetailsWrapper header='Winner'>
-          <UserDetails score={props.scores[winningIndex]} info={props.playersInfo[winningIndex]} />
+          <UserDetails score={props.scores[winningIndex]} info={props.formInfo[winningIndex]} />
         </UserDetailsWrapper>
         <UserDetailsWrapper header='Loser'>
-          <UserDetails score={props.scores[losingIndex]} info={props.playersInfo[losingIndex]} />
+          <UserDetails score={props.scores[losingIndex]} info={props.formInfo[losingIndex]} />
         </UserDetailsWrapper>
       </div>
       <StartOver />
@@ -58,7 +58,7 @@ const Results = (props) => {
 
 Results.propTypes = {
   isLoading: PropTypes.bool.isRequired,
-  playersInfo: PropTypes.array.isRequired,
+  formInfo: PropTypes.array.isRequired,
   scores: PropTypes.array.isRequired
 }
 
