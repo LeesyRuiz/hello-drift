@@ -1,36 +1,36 @@
 /* eslint-disable */
 import React, { PropTypes } from 'react'
 
-const UserDetails = (user) => {
+const EventDetails = (event) => {
   return (
     <div>
-      {!!user.score && <li className='list-group-item'><h3>Score: {user.score}</h3></li>}
-      <li className='list-group-item'><img src={user.info.avatar_url} className='img-rounded img-responsive'></img></li>
-      {!!user.info.name && <li className='list-group-item'>Name: {user.info.name}</li>}
-      <li className='list-group-item'>city: {user.info.login}</li>
-      {!!user.info.location && <li className='list-group-item'>Location: {user.info.location}</li>}
-      {!!user.info.company && <li className='list-group-item'>Company: {user.info.company}</li>}
-      <li className='list-group-item'>Followers: {user.info.followers}</li>
-      <li className='list-group-item'>Following: {user.info.following}</li>
-      <li className='list-group-item'>Public Repos: {user.info.public_repos}</li>
-      {!!user.info.blog && <li className='list-group-item'>Blog: {user.info.blog}</li>}
-    </div>
-  )
-}
+      // {!!event.score && <li className='list-group-item'><h3>Score: {event.score}</h3></li>}
 
-UserDetails.propTypes = {
-  score: PropTypes.number,
-  info: PropTypes.shape({
-    avatar_url: PropTypes.string.isRequired,
-    blog: PropTypes.string,
-    company: PropTypes.string,
-    followers: PropTypes.number.isRequired,
-    following: PropTypes.number.isRequired,
-    location: PropTypes.string,
-    login: PropTypes.string.isRequired,
-    name: PropTypes.string,
-    public_repos: PropTypes.number.isRequired
-  })
-}
+      <li className='list-group-item'>
+        <img src={event.info.pic_url} className='img-rounded img-responsive'></img></li>
+        {!!event.info.name && <li className='list-group-item'> Name: {event.info.name}</li>}
+        {!!event.info.location && <li className='list-group-item'>Location: {event.info.location}</li>}
+        {!!event.info.startTime && <li className='list-group-item'>Starting At: {event.info.startTime}</li>}
+        <li className='list-group-item'>description: {event.info.description}</li>
+        <li className='list-group-item'>Following: {event.info.following}</li>
+        <li className='list-group-item'>Public Repos: {event.info.public_repos}</li>
+        {!!event.info.blog && <li className='list-group-item'>Blog: {event.info.blog}</li>}
+      </div>
+    )
+  }
 
-export default UserDetails
+  EventDetails.propTypes = {
+    // score: PropTypes.number,
+
+    info: PropTypes.shape({
+
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      pic_url: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      startTime: PropTypes.string.isRequired,
+      location: PropTypes.string.isRequired,
+    })
+  }
+
+  export default EventDetails

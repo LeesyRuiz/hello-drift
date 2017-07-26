@@ -45,7 +45,7 @@ const getSingleEvent = (player) => {
     })
 }
 
-const calculateScores = (players) => {
+const calculaterandomlySelectedEvent = (players) => {
   return [
     players[0].followers * 3 + players[0].totalStars,
     players[1].followers * 3 + players[1].totalStars
@@ -71,7 +71,7 @@ const Helpers = {
     let playerTwoData = getPlayersData(players[1]);
 
     return axios.all([playerOneData, playerTwoData])
-      .then(calculateScores)
+      .then(calculaterandomlySelectedEvent)
       .catch((err) => {
         console.warn('Err in battle(): ', err)
       })

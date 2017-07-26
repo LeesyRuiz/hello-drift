@@ -8,15 +8,15 @@ class ResultsContainer extends Component {
 
     this.state = {
       isLoading: true,
-      scores: []
+      randomlySelectedEvent: []
     }
   }
 
   componentDidMount() {
     Helpers.battle(this.props.location.state.formInfo)
-      .then((scores) => {
+      .then((randomlySelectedEvent) => {
         this.setState({
-          scores: scores,
+          randomlySelectedEvent: randomlySelectedEvent,
           isLoading: false
         })
       })
@@ -26,7 +26,7 @@ class ResultsContainer extends Component {
     return (
       <Results
         isLoading={this.state.isLoading}
-        scores={this.state.scores}
+        randomlySelectedEvent={this.state.randomlySelectedEvent}
         formInfo={this.props.location.state.formInfo} />
     )
   }

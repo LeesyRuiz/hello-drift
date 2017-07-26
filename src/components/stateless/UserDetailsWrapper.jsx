@@ -1,6 +1,6 @@
 import React from 'react'
 
-const UserDetailsWrapper = (props) => {
+const EventDetailsWrapper = (props) => {
   return (
     <div className='col-sm-6'>
       <p className='lead'>{props.header}</p>
@@ -9,4 +9,4 @@ const UserDetailsWrapper = (props) => {
   )
 }
 
-export default UserDetailsWrapper
+export default EventDetailsWrapper
