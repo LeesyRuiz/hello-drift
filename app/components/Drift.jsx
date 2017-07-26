@@ -134,6 +134,6 @@ class TimeRelatedForm extends React.Component {
   }
 };
 
-const WrappedTimeRelatedForm = Form.create()(TimeRelatedForm);
+const Drift = Form.create()(TimeRelatedForm);
 
-export default WrappedTimeRelatedForm
+export default Drift

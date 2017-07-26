@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#000000">
+  <!--
+  manifest.json provides metadata used when your web app is added to the
+  homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+-->
+<link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+<link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvqXbfgmLassNY-A5J7IVrI0sCuXhojFQ"></script>
+
+
+<title>React App</title>
+</head>
+
+<body>
+  <div id="facebook">
+    <div id="status">  </div>
+    <button onclick="getInfo()">Get Info</button>
+    <button onclick="login()" id="login">Login</button>
+  </div>
+  
+  <div id="app"></div>
+
+
+</body>
+
+<script>
+
+window.fbAsyncInit = function() {
+  FB.init({
+    appId            : '569792133411051',
+    autoLogAppEvents : true,
+    xfbml            : true,
+    version          : 'v2.9'
+  });
+  // FB.AppEvents.logPageView();
+  FB.getLoginStatus(function(response) {
+    if (response.status === 'connected') {
+      document.getElementById('status').innerHTML = 'We are connected.';
+
+      // get tokens ----->
+      var uid = response.authResponse.userID;
+      var accessToken = response.authResponse.accessToken;
+
+      document.getElementById('login').style.visibility = 'hidden';
+    } else if (response.status === 'not_authorized') {
+      document.getElementById('status').innerHTML = 'We are not logged in.'
+    } else {
+      document.getElementById('status').innerHTML = 'You are not logged into Facebook.';
+    }
+  });
+};
+(function(d, s, id){
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+// login with facebook with extra permissions
+function login() {
+  FB.login(function(response) {
+    if (response.status === 'connected') {
+      document.getElementById('status').innerHTML = 'We are connected.';
+      document.getElementById('login').style.visibility = 'hidden';
+    } else if (response.status === 'not_authorized') {
+      document.getElementById('status').innerHTML = 'We are not logged in.'
+    } else {
+      document.getElementById('status').innerHTML = 'You are not logged into Facebook.';
+    }
+  }, {scope: 'email'});
+}
+
+// getting basic user info
+function getInfo() {
+  FB.api('/me', 'GET', {fields: 'first_name,last_name,name,id'}, function(response) {
+    document.getElementById('status').innerHTML = response.name;
+    console.log(response);
+  });
+}
+</script>
+
+</html>
