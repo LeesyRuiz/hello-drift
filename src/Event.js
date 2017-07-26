@@ -30,7 +30,6 @@ class Event extends Component {
     var url =  'http://192.168.99.100:3000/events?lat=47.617&lng=-122.332&distance=70&sort=time&accessToken=EAACEdEose0cBAOZBjIZBd1ZCC7DylKqLaWYoxkPJpn3FGx55EJbnv822hOAkdyZC67NV4xRyYhQsVWqsZCx4nkwNRVfbrMoCr8fX9wJL4MxqpudbZCP6dr0zH4beFuRpAsqnWqAJsAx0LISZBnDfkxbEItUO8Vo9ePS3htKv4pD2XMJzaZCFFDP3WNuQLU8F48IZD'
     var jsonData = fetch(url).then((res) => res.json())
     console.log(jsonData);
-
     return jsonData
 
   }

@@ -3,8 +3,8 @@
 import React, { Component } from "react";
 import $ from "jquery";
 // import './App.css';
-// import Form from "./Form";
-// import Event from "./Event";
+import Form from "./Form";
+import Event from "./Event";
 // import User from "./User";
 import Page from "./Page";
 
@@ -21,7 +21,9 @@ class App extends Component {
   render(){
     return (
       <div>
-      <Page />
+        <Page/>
+      <Form />
+      <Event/>
       </div>
     )
   }
