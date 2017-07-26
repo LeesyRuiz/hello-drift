@@ -1,6 +1,6 @@
  import React from 'react';
 import ReactDOM from 'react-dom';
- import App from './App';
+ import App from './components/App';
 import { LocaleProvider } from 'antd';
 import enUS from 'antd/lib/locale-provider/en_US';
 
