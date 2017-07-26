@@ -44,11 +44,15 @@ class Page extends Component {
   render(){
     return (
       <div>
-          <WarningBanner warn={this.state.showWarning} />
-      <Event />
-      <button onClick={this.handleToggleClick}>
-           {this.state.showWarning ? 'Submit' : 'Show'}
-        </button>
+        <div id="status">  </div>
+       <button onclick="getInfo()">Get Info</button>
+       <button onclick="login()" id="login">Login</button>
+
+      //     <WarningBanner warn={this.state.showWarning} />
+      // <Event />
+      // <button onClick={this.handleToggleClick}>
+      //      {this.state.showWarning ? 'Submit' : 'Show'}
+      //   </button>
       </div>
     )
   }

@@ -5,16 +5,13 @@ import $ from "jquery";
 // import './App.css';
 // import Form from "./Form";
 // import Event from "./Event";
-// import {LatLng} from "./Location";
-// import LatLng from "./Test";
+// import User from "./User";
 import Page from "./Page";
-
 
 
 class App extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       events: [],
       eventName: [],
@@ -24,12 +21,11 @@ class App extends Component {
   render(){
     return (
       <div>
-
       <Page />
-
       </div>
     )
   }
+
 }
 
 export default App;
